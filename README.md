@@ -150,12 +150,10 @@ Create a `.env` file in the root directory:
 
 ```dotenv
 # AWS Configuration
-AWS_ACCESS_KEY_ID=your_aws_access_key
-AWS_SECRET_ACCESS_KEY=your_aws_secret_key
 AWS_DEFAULT_REGION=us-east-1
 
 # MongoDB Configuration
-MONGODB_URI=mongodb+srv://<username>:<password>@<cluster-name>.mongodb.net/
+MONGODB_URI=""
 DATABASE_NAME=insurance_claims
 COLLECTION_NAME=policy_documents
 COLLECTION_NAME_2=processed_claims
@@ -240,12 +238,10 @@ Create a `.env` file in the `backend` directory:
 
 ```dotenv
 # AWS Configuration
-AWS_ACCESS_KEY_ID=your_aws_access_key
-AWS_SECRET_ACCESS_KEY=your_aws_secret_key
 AWS_DEFAULT_REGION=us-east-1
 
 # MongoDB Configuration
-MONGODB_URI=mongodb+srv://<username>:<password>@<cluster-name>.mongodb.net/
+MONGODB_URI=""
 DATABASE_NAME=insurance_claims
 COLLECTION_NAME=policy_documents
 COLLECTION_NAME_2=processed_claims
