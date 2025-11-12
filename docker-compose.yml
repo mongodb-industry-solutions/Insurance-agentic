@@ -1,0 +1,25 @@
+services:
+  insurance-agentic-backend:
+    build:
+      context: .
+      no_cache: true
+      dockerfile: Dockerfile.backend
+    image: insurance-agentic-backend:latest
+    volumes:
+      - ~/.aws/credentials:/root/.aws/credentials:ro
+      - ~/.aws/config:/root/.aws/config:ro
+      - ~/.aws/sso/cache:/root/.aws/sso/cache:rw  # Only make cache writable
+    ports:
+      - "8080:8080"
+    restart: always
+    container_name: insurance-agentic-backend
+  insurance-agentic-frontend:
+    build:
+      context: .
+      no_cache: true
+      dockerfile: Dockerfile.frontend
+    image: insurance-agentic-frontend:latest
+    ports:
+      - "3000:3000"
+    restart: always
+    container_name: insurance-agentic-frontend

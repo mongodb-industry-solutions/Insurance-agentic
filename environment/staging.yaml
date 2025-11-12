@@ -1,0 +1,20 @@
+env:
+  NODE_ENV: staging
+  # AWS region for IRSA (no credentials needed)
+  AWS_REGION: us-east-1
+  NEXT_PUBLIC_API_BASE: https://insurance-agentic-backend.industrysolutions.staging.corp.mongodb.com
+
+envSecrets:
+  AWS_DEFAULT_REGION: insurance-agentic-secret
+  MONGODB_URI: insurance-agentic-secret
+  DATABASE_NAME: insurance-agentic-secret
+  COLLECTION_NAME: insurance-agentic-secret
+  COLLECTION_NAME_2: insurance-agentic-secret
+  CHAT_HISTORY_COLLECTION: insurance-agentic-secret
+  BEDROCK_REGION: insurance-agentic-secret
+
+serviceAccount:
+  enabled: true
+  irsa:
+    accountId: "275662791714"
+    roleName: "kanopy-staging-cicd-irsa"

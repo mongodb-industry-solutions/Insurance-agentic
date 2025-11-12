@@ -1,0 +1,301 @@
+.content {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  margin-top: 100px;
+  overflow-y: auto;
+}
+
+.similarImageSection {  
+  flex: 1;
+  padding-left: 20px;
+  margin-right: 50px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imageDescriptorSection {
+  flex: 1;
+  border-right: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.subtitle{
+  color: #001E2B;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+.dragBox {
+  width: 300px;
+  height: 300px;
+  border: 2px dashed #dfdfe0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #889397;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.droppedImage {
+  width: 100%;
+  height: 100%;
+}
+
+.uploadBtn {
+  margin-top: 20px;
+
+}
+
+
+.uploadedImgInfo {
+  display: flex;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+  padding: 15px 60px;
+  margin-top: 10px;
+  text-align: center;
+  width: 50%;
+  text-align: left;
+}
+
+.info {
+  margin: 0 20px;
+}
+
+.fieldTitle {
+  color: #889397;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.fieldContent {
+  font-size: 18px;
+  margin-top: 5px;
+}
+
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.info {
+  margin: 0 10px;
+  flex: 1;
+}
+
+.referenceCards {
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  background-color: white;
+  align-items: center;
+  text-align: left;
+}
+
+.imgSection img {
+  width: 250px;
+  height: auto;
+}
+
+.contentSection {
+  padding-left: 15px;
+  flex-grow: 1;
+}
+
+.fieldTitle {
+  font-size: 14px;
+}
+
+.fieldContent {
+  font-size: 14px;
+}
+
+.topRow {
+  margin-bottom: 5px;
+}
+
+.lowerSection {
+  margin-top: 5px;
+  margin-left: 10px;
+}
+
+.spinner {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid #009b15;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  animation: spin 1s linear infinite;
+}
+
+.link{
+  color: #006CFA;
+  text-decoration: underline;
+  font-size: 12px;
+}
+
+.sampleImagesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  padding: 10px;
+}
+
+.sampleImage {
+  width: 100px; /* Fixed size */
+  height: 100px; /* Keeps aspect ratio */
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, border 0.2s ease-in-out;
+  border: 2px solid transparent;
+}
+
+.sampleImage:hover {
+  transform: scale(1.05);
+}
+
+.selectedImage {
+  border: 2px solid #4caf50; /* Highlight selection */
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+  transform: none; /* Prevent size change */
+  width: 100px; /* Fixed size */
+  height: 100px; /* Keeps aspect ratio */
+}
+
+.claimContainer {
+  background: #fff;
+  border-radius: 8px;
+  padding: 0px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 16px;
+}
+
+.claimHeader {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  margin-bottom: 12px;
+  background-color: #f1f1f1;
+  padding: 10px;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.checkIcon {
+  margin-right: 8px;
+}
+
+.sparkleIcon{
+  margin-right: 2px;
+  padding-top: 20px;
+}
+
+.imageDescriptionTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Adjust spacing as needed */
+  text-align: center;
+}
+
+.claimDetails {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.detailRow {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  text-align: left;
+  margin: 10px 35px;
+}
+
+.detailTitle{
+  color: #9E9E9E;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.claimStatusContainer {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center them horizontally */
+  justify-content: center; /* Center vertically within the section */
+  gap: 4px; /* Adjust spacing between text and badge */
+}
+
+.claimSummary{
+  text-align: left;
+  margin: 20px 35px;
+}
+
+.policySection {
+  margin: 20px 35px;
+  text-align: left;
+}
+
+.policyBox {
+  background: #f8f8f8;
+  padding: 8px;
+  border-radius: 9px;
+  font-size: 14px;
+  color: #333;
+  margin-top: 10px;
+}
+
+.recommendations {
+  margin: 20px 35px;
+  text-align: left;
+}
+
+.recommendations ol {
+  padding-left: 16px;
+}
+
+.recommendations li {
+  margin-bottom: 8px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.similarDocsContainer {
+  display: block;  /* Switched to block for a fluid paragraph-like display */
+  margin-top: 10px;
+  text-align: center;  /* Align text left if needed */
+  margin-left: 20%; 
+  margin-right: 20%;
+
+}
+
+/* Remove the box styling by removing similarDoc class rules */
+.similarDoc {
+  display: inline;  /* Ensure text flows inline like a normal text paragraph */
+  margin-right: 10px; /* Optional: Add slight space between words */
+  background-color: transparent; /* Remove background */
+  padding: 0; /* Remove padding */
+  border-radius: 0; /* Remove border radius */
+  font-size: 16px; /* Increase font-size for better readability */
+
+}
+
