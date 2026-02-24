@@ -25,8 +25,8 @@ class BedrockCohereEnglishEmbeddings:
     def __init__(self, 
                  aws_access_key: Optional[str] = None, 
                  aws_secret_key: Optional[str] = None,
-                 region_name: Optional[str] = "us-east-1", 
-                 model_id: Optional[str] = "cohere.embed-english-v3",
+                 region_name: Optional[str] = "us-east-1",
+                 model_id: Optional[str] = os.getenv("BEDROCK_MODEL_COHERE_EMBED", "cohere.embed-english-v3"),
                  mongodb_uri: Optional[str] = None,
                  database_name: Optional[str] = None) -> None:
         """

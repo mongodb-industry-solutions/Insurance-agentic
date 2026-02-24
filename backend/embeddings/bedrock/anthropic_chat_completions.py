@@ -24,7 +24,7 @@ class BedrockAnthropicChatCompletions(BedrockClient):
     log: logging.Logger = logging.getLogger("BedrockAnthropicChatCompletions")
 
     def __init__(self, aws_access_key: Optional[str] = None, aws_secret_key: Optional[str] = None,
-                 region_name: Optional[str] = "us-east-1", model_id: Optional[str] = "anthropic.claude-3-haiku-20240307-v1:0") -> None:
+                 region_name: Optional[str] = "us-east-1", model_id: Optional[str] = os.getenv("BEDROCK_MODEL_HAIKU", "anthropic.claude-3-haiku-20240307-v1:0")) -> None:
         super().__init__(aws_access_key=aws_access_key, aws_secret_key=aws_secret_key, region_name=region_name)
         """
         Initialize the BedrockAnthropicChatCompletions class.
@@ -99,7 +99,7 @@ if __name__ == '__main__':
     # 2. poetry remove boto3 botocore ---> (This will remove the packages from the project)
 
     # Example usage of the BedrockAnthropicChatCompletions class.
-    chat_completions_model = "anthropic.claude-3-haiku-20240307-v1:0" # You can change this to any Claude Anthropic model.
+    chat_completions_model = os.getenv("BEDROCK_MODEL_HAIKU", "anthropic.claude-3-haiku-20240307-v1:0")
     aws_access_key = os.getenv("AWS_ACCESS_KEY_ID")
     aws_secret_key = os.getenv("AWS_SECRET_ACCESS_KEY")
     region_name = os.getenv("AWS_REGION")

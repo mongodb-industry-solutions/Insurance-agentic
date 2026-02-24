@@ -6,7 +6,7 @@ from agent_llm import get_llm
 from agent_tools import tools
 
 
-llm = get_llm(model_id="anthropic.claude-3-haiku-20240307-v1:0")
+llm = get_llm()
 
 def create_agent(llm, tools, system_message: str):
     """Create an agent
