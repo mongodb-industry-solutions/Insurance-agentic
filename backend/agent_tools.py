@@ -20,7 +20,7 @@ logging.basicConfig(
 
 INDEX_NAME = "description_index" 
 
-embedding_model = get_embedding_model(model_id="cohere.embed-english-v3")
+embedding_model = get_embedding_model(model_id=os.getenv("BEDROCK_MODEL_COHERE_EMBED", "cohere.embed-english-v3"))
 
 vector_store = create_vector_store(
         cluster_uri=os.getenv("MONGODB_URI"),
