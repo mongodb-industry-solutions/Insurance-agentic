@@ -24,7 +24,7 @@ grandalf = "^0.8"
 langgraph-checkpoint-mongodb = "^0.1.0"
 langchain-mongodb = "^0.4.0"
 tqdm = "^4.67.1"
-python-multipart = "^0.0.20"
+python-multipart = ">=0.0.20,<0.0.32"
 
 
 [build-system]
