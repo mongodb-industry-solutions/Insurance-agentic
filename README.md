@@ -100,20 +100,14 @@ This project leverages [**MongoDB Atlas Vector Search**](https://www.mongodb.com
     - `processed_claims` – For storing final claim summaries  
     - `chat_history` – For agent conversation persistence  
     - `policy_documents` – For insurance guidelines and policies (with vector embeddings)
-3. **Set up MongoDB Vector Search Index for the `policy_documents` collection:**
+3. **Create the `policy_documents` Vector Search index and seed sample guidelines**, from the `backend` directory (after completing Step 1 below and installing dependencies):
 
-```json
-{
-  "fields": [
-    {
-      "type": "vector",
-      "path": "descriptionEmbedding",
-      "numDimensions": 1024,
-      "similarity": "cosine"
-    }
-  ]
-}
+```sh
+poetry run python scripts/create_vector_search_index.py
+poetry run python scripts/seed_policy_documents.py
 ```
+
+Both scripts are idempotent — safe to re-run.
 
 ---
 
