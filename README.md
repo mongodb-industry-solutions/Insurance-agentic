@@ -25,14 +25,14 @@ The application follows a comprehensive agentic workflow that bridges structured
 
 ## Where MongoDB Shines
 
-This project leverages [**MongoDB Atlas Vector Search**](https://www.mongodb.com/products/platform/atlas/vector-search?utm_campaign=devrel&utm_source=github&utm_medium=referral&utm_content=insurance_agentic&utm_term=learning.fuel) to efficiently handle the complete insurance workflow, providing fast and relevant retrieval of information. [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register?utm_campaign=devrel&utm_source=github&utm_medium=referral&utm_content=insurance_agentic&utm_term=learning.fuel) offers robust and scalable database solutions, making it ideal for handling large volumes of data and complex queries.
+This project leverages [**MongoDB Vector Search**](https://www.mongodb.com/products/platform/atlas/vector-search?utm_campaign=devrel&utm_source=github&utm_medium=referral&utm_content=insurance_agentic&utm_term=learning.fuel) to efficiently handle the complete insurance workflow, providing fast and relevant retrieval of information. [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register?utm_campaign=devrel&utm_source=github&utm_medium=referral&utm_content=insurance_agentic&utm_term=learning.fuel) offers robust and scalable database solutions, making it ideal for handling large volumes of data and complex queries.
 
 ### Key MongoDB Capabilities
 
 - **Unified Data Platform**  
   Seamlessly handles both structured claim data (customer info, policy details) and unstructured data (damage photos, policy documents, accident reports) in a single database. No more data silos or complex ETL processes.
 
-- **[Atlas Vector Search](https://www.mongodb.com/products/platform/atlas/vector-search?utm_campaign=devrel&utm_source=github&utm_medium=referral&utm_content=insurance_agentic&utm_term=learning.fuel)**  
+- **[MongoDB Vector Search](https://www.mongodb.com/products/platform/atlas/vector-search?utm_campaign=devrel&utm_source=github&utm_medium=referral&utm_content=insurance_agentic&utm_term=learning.fuel)**  
   Powers semantic similarity search using advanced embeddings to find relevant insurance policies based on accident descriptions, enabling intelligent claim routing and policy recommendations with unprecedented accuracy.
 
 - **Flexible Schema Evolution**  
@@ -72,7 +72,7 @@ This project leverages [**MongoDB Atlas Vector Search**](https://www.mongodb.com
 ### Database & Vector Search
 
 - **[MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register?utm_campaign=devrel&utm_source=github&utm_medium=referral&utm_content=insurance_agentic&utm_term=learning.fuel):** Cloud-native document database with vector search capabilities  
-- **[MongoDB Atlas Vector Search](https://www.mongodb.com/products/platform/atlas/vector-search?utm_campaign=devrel&utm_source=github&utm_medium=referral&utm_content=insurance_agentic&utm_term=learning.fuel):** Semantic similarity search for policy retrieval  
+- **[MongoDB Vector Search](https://www.mongodb.com/products/platform/atlas/vector-search?utm_campaign=devrel&utm_source=github&utm_medium=referral&utm_content=insurance_agentic&utm_term=learning.fuel):** Semantic similarity search for policy retrieval  
 - **[PyMongo](https://pymongo.readthedocs.io/en/stable/):** Python driver for MongoDB operations  
 - **[LangGraph MongoDB Checkpoint](https://langchain-ai.github.io/langgraph/integrations/mongodb_checkpoint/):** Agent state persistence and workflow tracking
 

@@ -2,14 +2,14 @@
 
 An AI-powered insurance claims assistant that turns an uploaded accident photo into a
 structured claim: it describes the damage with a Bedrock vision model, retrieves relevant
-policy guidelines via MongoDB Atlas Vector Search, and has a LangGraph agent produce and
+policy guidelines via MongoDB Vector Search, and has a LangGraph agent produce and
 persist a claim summary with recommendations for a human handler.
 
 ## Where MongoDB Shines?
 
 MongoDB Atlas stores the whole workflow in one place: structured claim documents, agent
 chat history, and unstructured policy guideline text alongside its vector embeddings.
-Atlas Vector Search powers the guideline retrieval step — matching an AI-generated damage
+MongoDB Vector Search powers the guideline retrieval step — matching an AI-generated damage
 description against policy documents by semantic similarity rather than keyword search.
 
 ## High Level Architecture
@@ -25,7 +25,7 @@ produces a claim summary with recommendations and persists it back to MongoDB.
 - [FastAPI](https://fastapi.tiangolo.com/) + [Uvicorn](https://www.uvicorn.org/) for the backend API
 - [LangChain](https://python.langchain.com/docs/) + [LangGraph](https://langchain-ai.github.io/langgraph/) for the agent
 - [AWS Bedrock](https://aws.amazon.com/bedrock/) (Claude models) for image analysis and agent reasoning
-- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register?utm_campaign=devrel&utm_source=github&utm_medium=referral&utm_content=insurance_agentic&utm_term=learning.fuel) and [Atlas Vector Search](https://www.mongodb.com/products/platform/atlas/vector-search?utm_campaign=devrel&utm_source=github&utm_medium=referral&utm_content=insurance_agentic&utm_term=learning.fuel) for storage and guideline retrieval
+- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register?utm_campaign=devrel&utm_source=github&utm_medium=referral&utm_content=insurance_agentic&utm_term=learning.fuel) and [MongoDB Vector Search](https://www.mongodb.com/products/platform/atlas/vector-search?utm_campaign=devrel&utm_source=github&utm_medium=referral&utm_content=insurance_agentic&utm_term=learning.fuel) for storage and guideline retrieval
 - [Next.js](https://nextjs.org/docs/app) (App Router) + [CSS Modules](https://github.com/css-modules/css-modules) for the frontend
 
 ## Prerequisites

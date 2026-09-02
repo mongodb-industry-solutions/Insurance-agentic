@@ -5,7 +5,7 @@ Guidance for AI coding agents working in this repository.
 This is an AI-powered insurance claims assistant. A FastAPI backend (`backend/`)
 sends an uploaded accident photo to a Bedrock vision model for a damage description,
 then a LangGraph agent (`backend/insurance_agent.py`) retrieves relevant policy
-guidelines via MongoDB Atlas Vector Search and writes a claim summary back to MongoDB.
+guidelines via MongoDB Vector Search and writes a claim summary back to MongoDB.
 A Next.js frontend (`frontend/`) uploads the photo and displays the resulting claim.
 
 ## Build and test commands

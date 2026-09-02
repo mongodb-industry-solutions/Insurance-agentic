@@ -1,5 +1,5 @@
 """
-Idempotent creation of the MongoDB Atlas Vector Search index that
+Idempotent creation of the MongoDB Vector Search index that
 agent_tools.py's fetch_guidelines() depends on (INDEX_NAME =
 "description_index"). Run this once against the policy_documents
 collection before relying on guideline lookups.

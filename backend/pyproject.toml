@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "insurance-agentic"
 version = "0.1.0"
-description = "AI-powered insurance claims assistant: Bedrock image analysis + LangGraph agent + MongoDB Atlas Vector Search"
+description = "AI-powered insurance claims assistant: Bedrock image analysis + LangGraph agent + MongoDB Vector Search"
 authors = ["MongoDB Industry Solutions <industry.solutions@mongodb.com>"]
 readme = "README.md"
 
