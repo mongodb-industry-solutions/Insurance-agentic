@@ -105,7 +105,7 @@ async def run_agent():
     database_name = os.getenv("DATABASE_NAME")
     collection_name = os.getenv("COLLECTION_NAME_2")
 
-    client = MongoClient(cluster_uri, appName="insurance-agentic")
+    client = MongoClient(cluster_uri, appName="devrel-demo-vectorsearch-langgraph-insurance")
     db = client[database_name]
     collection = db[collection_name]
 

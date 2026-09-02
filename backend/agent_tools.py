@@ -48,7 +48,7 @@ def persist_data(data) -> dict:
     database_name = os.getenv("DATABASE_NAME")
     collection_name = os.getenv("COLLECTION_NAME_2")
 
-    client = MongoClient(cluster_uri, appName="insurance-agentic")
+    client = MongoClient(cluster_uri, appName="devrel-demo-vectorsearch-langgraph-insurance")
     db = client[database_name]
 
     # Persist data. insert_one() mutates its input dict in place, injecting
@@ -74,7 +74,7 @@ def clean_chat_history() -> dict:
     database_name = os.getenv("DATABASE_NAME")
     chat_history_coll = os.getenv("CHAT_HISTORY_COLLECTION")
 
-    client = MongoClient(cluster_uri, appName="insurance-agentic")
+    client = MongoClient(cluster_uri, appName="devrel-demo-vectorsearch-langgraph-insurance")
     db = client[database_name]
 
     # Persist data

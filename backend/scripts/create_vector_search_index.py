@@ -38,7 +38,7 @@ def create_index(
     database_name = os.getenv("DATABASE_NAME")
     collection_name = os.getenv("COLLECTION_NAME")
 
-    client = MongoClient(cluster_uri, appName="insurance-agentic")
+    client = MongoClient(cluster_uri, appName="devrel-demo-vectorsearch-langgraph-insurance")
     collection = client[database_name][collection_name]
 
     index_config = {
