@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 8080",
+    "dev": "next dev -p 3000",
     "build": "next build",
-    "start": "next start -H 0.0.0.0 -p 8080"
+    "start": "next start -H 0.0.0.0 -p 3000"
   },
   "dependencies": {
     "@leafygreen-ui/badge": "^9.0.6",

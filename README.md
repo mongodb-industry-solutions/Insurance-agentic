@@ -160,12 +160,12 @@ COLLECTION_NAME_2=processed_claims
 CHAT_HISTORY_COLLECTION=chat_history
 
 # Bedrock Configuration
-BEDROCK_REGION=us-east-1
-
-# Frontend Configuration
-NEXT_PUBLIC_IMAGE_DESCRIPTOR_API_URL=http://localhost:8000/imageDescriptor
-NEXT_PUBLIC_RUN_AGENT_API_URL=http://localhost:8000/runAgent
+AWS_REGION=us-east-1
 ```
+
+> **Note**: The frontend container is already configured (via `docker-compose.yml`) to
+> reach the backend container at `http://insurance-agentic-backend:8080` — no additional
+> frontend env vars are needed for the Docker flow.
 
 #### Build the Application
 
@@ -176,8 +176,8 @@ make build
 #### Access the Application
 
 - Frontend UI: [http://localhost:3000](http://localhost:3000)
-- Backend API: [http://localhost:8000](http://localhost:8000)
-- API Documentation: [http://localhost:8000/docs](http://localhost:8000/docs)
+- Backend API: [http://localhost:8080](http://localhost:8080)
+- API Documentation: [http://localhost:8080/docs](http://localhost:8080/docs)
 
 ---
 
@@ -248,10 +248,14 @@ COLLECTION_NAME_2=processed_claims
 CHAT_HISTORY_COLLECTION=chat_history
 
 # Bedrock Configuration
-BEDROCK_REGION=us-east-1
+AWS_REGION=us-east-1
 ```
 
-Start the backend server.
+Start the backend server:
+
+```sh
+poetry run uvicorn main:app --host 0.0.0.0 --port 8080
+```
 
 ### Frontend Setup
 
@@ -266,8 +270,7 @@ cd ../frontend  # or 'cd frontend' if starting from project root
 Create a `.env.local` file in the `frontend` directory:
 
 ```dotenv
-NEXT_PUBLIC_IMAGE_DESCRIPTOR_API_URL=http://localhost:8000/imageDescriptor
-NEXT_PUBLIC_RUN_AGENT_API_URL=http://localhost:8000/runAgent
+NEXT_PUBLIC_API_BASE=http://localhost:8080
 ```
 
 Install dependencies:
@@ -285,8 +288,8 @@ npm run dev
 #### Access Local Development
 
 - Frontend UI: [http://localhost:3000](http://localhost:3000)
-- Backend API: [http://localhost:8000](http://localhost:8000)
-- API Documentation: [http://localhost:8000/docs](http://localhost:8000/docs)
+- Backend API: [http://localhost:8080](http://localhost:8080)
+- API Documentation: [http://localhost:8080/docs](http://localhost:8080/docs)
 
 ---
 
@@ -317,7 +320,7 @@ Refer to the Makefile itself or run `make help` for a full list and description 
 
 - Ensure Docker Desktop is running before using Make commands
 - Check that AWS credentials are properly mounted in containers
-- Verify that ports `3000` and `8000` are not in use by other applications
+- Verify that ports `3000` and `8080` are not in use by other applications
 
 #### AWS Bedrock Access
 
