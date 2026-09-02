@@ -65,8 +65,8 @@ This project leverages [**MongoDB Atlas Vector Search**](https://www.mongodb.com
 - **[LangChain](https://python.langchain.com/docs/):** Framework for developing applications with language models  
 - **[LangGraph](https://langchain-ai.github.io/langgraph/):** Library for building stateful, multi-actor agentic applications  
 - **[AWS Bedrock](https://aws.amazon.com/bedrock/):** Managed service for foundation models  
-- **Claude 3 Haiku:** [anthropic.claude-3-haiku-20240307-v1:0](https://docs.anthropic.com/claude/docs/models-overview) – Fast agent orchestration and reasoning  
-- **Claude 3 Sonnet:** [anthropic.claude-3-sonnet-20240229-v1:0](https://docs.anthropic.com/claude/docs/models-overview) – Advanced multi-modal image analysis  
+- **Claude Haiku 4.5:** [us.anthropic.claude-haiku-4-5-20251001-v1:0](https://docs.anthropic.com/claude/docs/models-overview) – Fast agent orchestration and reasoning  
+- **Claude Sonnet 4.5:** [us.anthropic.claude-sonnet-4-5-20250929-v1:0](https://docs.anthropic.com/claude/docs/models-overview) – Advanced multi-modal image analysis  
 - **Cohere English V3:** [cohere.embed-english-v3](https://docs.cohere.com/docs/embeddings) – Text embeddings for vector search
 
 ### Database & Vector Search
@@ -123,8 +123,8 @@ This project leverages [**MongoDB Atlas Vector Search**](https://www.mongodb.com
 - Add the AWS Access Key ID and Secret Access Key to your environment variables  
 - Grant the necessary permissions to the AWS account: `AmazonBedrockFullAccess`  
 - Ensure the required [Bedrock models](https://docs.aws.amazon.com/bedrock/latest/userguide/foundation-models.html) are available in your region:  
-    - `anthropic.claude-3-haiku-20240307-v1:0` (for agent orchestration)  
-    - `anthropic.claude-3-sonnet-20240229-v1:0` (for image analysis)  
+    - `us.anthropic.claude-haiku-4-5-20251001-v1:0` (for agent orchestration)  
+    - `us.anthropic.claude-sonnet-4-5-20250929-v1:0` (for image analysis)  
     - `cohere.embed-english-v3` (for text embeddings)  
 
 ---
