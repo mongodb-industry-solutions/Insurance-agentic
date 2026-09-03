@@ -12,6 +12,9 @@ envSecrets:
   COLLECTION_NAME_2: insurance-agentic-secret
   CHAT_HISTORY_COLLECTION: insurance-agentic-secret
   BEDROCK_REGION: insurance-agentic-secret
+  BEDROCK_MODEL_HAIKU: insurance-agentic-secret
+  BEDROCK_MODEL_SONNET: insurance-agentic-secret
+  BEDROCK_MODEL_COHERE_EMBED: insurance-agentic-secret
 
 serviceAccount:
   enabled: true
