@@ -3,7 +3,7 @@ import base64
 import json
 import os
 
-def stream_image_to_bedrock(image_path, model_id=os.getenv("BEDROCK_MODEL_SONNET", "anthropic.claude-3-sonnet-20240229-v1:0")):
+def stream_image_to_bedrock(image_path, model_id=os.getenv("BEDROCK_MODEL_SONNET", "anthropic.claude-sonnet-5")):
     """
     Send an image to Amazon Bedrock and stream the response
 
