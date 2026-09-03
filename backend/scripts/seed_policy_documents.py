@@ -93,7 +93,7 @@ def seed(sample_guidelines=SAMPLE_GUIDELINES) -> dict:
     database_name = os.getenv("DATABASE_NAME")
     collection_name = os.getenv("COLLECTION_NAME")
 
-    client = MongoClient(cluster_uri, appName="devrel-demo-vectorsearch-langgraph-insurance")
+    client = MongoClient(cluster_uri, appName="devrel-github-python-insurance_agentic")
     collection = client[database_name][collection_name]
 
     embedding_model = get_embedding_model(model_id="cohere.embed-english-v3")

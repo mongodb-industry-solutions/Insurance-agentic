@@ -1,7 +1,7 @@
 # EDD — Entity Document Diagram
 
 Database: `insurance_claims` (env var `DATABASE_NAME`), on MongoDB Atlas. All clients
-connect via `pymongo.MongoClient(MONGODB_URI, appName="devrel-demo-vectorsearch-langgraph-insurance")`.
+connect via `pymongo.MongoClient(MONGODB_URI, appName="devrel-github-python-insurance_agentic")`.
 
 Field types below were derived from the code paths that write each collection
 (`backend/scripts/seed_policy_documents.py`, `backend/agent_tools.py`,
