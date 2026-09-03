@@ -48,12 +48,16 @@ def persist_data(data) -> dict:
     database_name = os.getenv("DATABASE_NAME")
     collection_name = os.getenv("COLLECTION_NAME_2")
 
-    client = MongoClient(cluster_uri)
+    client = MongoClient(cluster_uri, appName="devrel-github-python-insurance_agentic")
     db = client[database_name]
-    
-    # Persist data
+
+    # Persist data. insert_one() mutates its input dict in place, injecting
+    # a live ObjectId under "_id" — pass a copy so that mutation doesn't leak
+    # back into the LLM's tool-call args still referenced in message history
+    # (Bedrock's Converse API rejects a raw ObjectId when that history is
+    # echoed back in the next request).
     collection = db[collection_name]
-    result = collection.insert_one(data)
+    result = collection.insert_one(dict(data))
     
     # Get the ObjectId of the inserted document
     inserted_id = result.inserted_id
@@ -70,9 +74,9 @@ def clean_chat_history() -> dict:
     database_name = os.getenv("DATABASE_NAME")
     chat_history_coll = os.getenv("CHAT_HISTORY_COLLECTION")
 
-    client = MongoClient(cluster_uri)
+    client = MongoClient(cluster_uri, appName="devrel-github-python-insurance_agentic")
     db = client[database_name]
-    
+
     # Persist data
     collection = db[chat_history_coll]
     collection.delete_many({})

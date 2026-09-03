@@ -40,7 +40,7 @@ async def read_root(request: Request):
 @app.post("/imageDescriptor")
 async def analyze_image(
     file: UploadFile = File(...),
-    model_id: Optional[str] = 'anthropic.claude-3-sonnet-20240229-v1:0',
+    model_id: Optional[str] = 'us.anthropic.claude-sonnet-4-5-20250929-v1:0',
     prompt: Optional[str] = "What do you see in this image? Give a concise description and focus and what happened to vehicles."
 ):
     global image_description  # Use the global variable
@@ -105,7 +105,7 @@ async def run_agent():
     database_name = os.getenv("DATABASE_NAME")
     collection_name = os.getenv("COLLECTION_NAME_2")
 
-    client = MongoClient(cluster_uri)
+    client = MongoClient(cluster_uri, appName="devrel-github-python-insurance_agentic")
     db = client[database_name]
     collection = db[collection_name]
 

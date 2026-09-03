@@ -1,12 +1,12 @@
 [tool.poetry]
-name = "your-virtual-env"
+name = "insurance-agentic"
 version = "0.1.0"
-description = "Your Description"
-authors = ["Your Name <you@example.com>"]
+description = "AI-powered insurance claims assistant: Bedrock image analysis + LangGraph agent + MongoDB Vector Search"
+authors = ["MongoDB Industry Solutions <industry.solutions@mongodb.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = ">=3.10,<3.11"
+python = ">=3.10,<3.13"
 pymongo = ">=4.9.0,<4.10.0"
 python-dotenv = "^1.0.1"
 fastapi = "^0.115.4"
