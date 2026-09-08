@@ -1,19 +1,20 @@
 import boto3
 import base64
 import json
+import os
 
-def stream_image_to_bedrock(image_path, model_id='anthropic.claude-3-sonnet-20240229-v1:0'):
+def stream_image_to_bedrock(image_path, model_id=os.getenv("BEDROCK_MODEL_SONNET", "anthropic.claude-sonnet-5")):
     """
     Send an image to Amazon Bedrock and stream the response
-    
+
     :param image_path: Path to the image file
-    :param model_id: ID of the Bedrock model to use (default is Claude 3 Sonnet)
+    :param model_id: ID or inference profile ARN of the Bedrock model to use
     :yield: Streamed chunks of the response
     """
     # Create a Bedrock Runtime client
     bedrock_runtime = boto3.client(
-        service_name='bedrock-runtime', 
-        region_name='us-east-1'  # Replace with your preferred AWS region
+        service_name='bedrock-runtime',
+        region_name=os.getenv("AWS_REGION", "us-east-1")
     )
     
     # Read the image file and encode it to base64

@@ -40,7 +40,7 @@ async def read_root(request: Request):
 @app.post("/imageDescriptor")
 async def analyze_image(
     file: UploadFile = File(...),
-    model_id: Optional[str] = 'anthropic.claude-3-sonnet-20240229-v1:0',
+    model_id: Optional[str] = os.getenv("BEDROCK_MODEL_SONNET", "arn:aws:bedrock:us-east-1:275662791714:inference-profile/global.anthropic.claude-sonnet-5"),
     prompt: Optional[str] = "What do you see in this image? Give a concise description and focus and what happened to vehicles."
 ):
     global image_description  # Use the global variable
