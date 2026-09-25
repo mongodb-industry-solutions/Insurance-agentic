@@ -1,4 +1,4 @@
-from langchain_aws import ChatBedrock
+from langchain_aws import ChatBedrockConverse
 
 import os
 import logging
@@ -19,7 +19,7 @@ def get_llm(model_id: str = os.getenv("BEDROCK_MODEL_HAIKU", "anthropic.claude-s
             aws_secret_key: str = os.getenv("AWS_SECRET_ACCESS_KEY"),
             aws_region: str = os.getenv("AWS_REGION")) -> ChatBedrock:
     """
-    Get an instance of the ChatBedrock class for the specified model ID and AWS credentials.
+    Get an instance of the ChatBedrockConverse class for the specified model ID and AWS credentials.
 
     Args:
         model_id (str): The model ID or inference profile ARN to use.

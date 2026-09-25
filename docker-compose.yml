@@ -19,6 +19,10 @@ services:
       no_cache: true
       dockerfile: Dockerfile.frontend
     image: insurance-agentic-frontend:latest
+    environment:
+      - INTERNAL_API_URL=http://insurance-agentic-backend:8080
+    depends_on:
+      - insurance-agentic-backend
     ports:
       - "3000:3000"
     restart: always

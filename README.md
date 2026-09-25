@@ -25,14 +25,14 @@ The application follows a comprehensive agentic workflow that bridges structured
 
 ## Where MongoDB Shines
 
-This project leverages [**MongoDB Atlas Vector Search**](https://www.mongodb.com/products/platform/atlas/vector-search) to efficiently handle the complete insurance workflow, providing fast and relevant retrieval of information. [MongoDB Atlas](https://www.mongodb.com/atlas/database) offers robust and scalable database solutions, making it ideal for handling large volumes of data and complex queries.
+This project leverages [**MongoDB Vector Search**](https://www.mongodb.com/products/platform/atlas/vector-search?utm_campaign=devrel&utm_source=github&utm_medium=referral&utm_content=insurance_agentic&utm_term=learning.fuel) to efficiently handle the complete insurance workflow, providing fast and relevant retrieval of information. [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register?utm_campaign=devrel&utm_source=github&utm_medium=referral&utm_content=insurance_agentic&utm_term=learning.fuel) offers robust and scalable database solutions, making it ideal for handling large volumes of data and complex queries.
 
 ### Key MongoDB Capabilities
 
 - **Unified Data Platform**  
   Seamlessly handles both structured claim data (customer info, policy details) and unstructured data (damage photos, policy documents, accident reports) in a single database. No more data silos or complex ETL processes.
 
-- **[Atlas Vector Search](https://www.mongodb.com/products/platform/atlas/vector-search)**  
+- **[MongoDB Vector Search](https://www.mongodb.com/products/platform/atlas/vector-search?utm_campaign=devrel&utm_source=github&utm_medium=referral&utm_content=insurance_agentic&utm_term=learning.fuel)**  
   Powers semantic similarity search using advanced embeddings to find relevant insurance policies based on accident descriptions, enabling intelligent claim routing and policy recommendations with unprecedented accuracy.
 
 - **Flexible Schema Evolution**  
@@ -65,14 +65,14 @@ This project leverages [**MongoDB Atlas Vector Search**](https://www.mongodb.com
 - **[LangChain](https://python.langchain.com/docs/):** Framework for developing applications with language models  
 - **[LangGraph](https://langchain-ai.github.io/langgraph/):** Library for building stateful, multi-actor agentic applications  
 - **[AWS Bedrock](https://aws.amazon.com/bedrock/):** Managed service for foundation models  
-- **Claude 3 Haiku:** [anthropic.claude-3-haiku-20240307-v1:0](https://docs.anthropic.com/claude/docs/models-overview) – Fast agent orchestration and reasoning  
-- **Claude 3 Sonnet:** [anthropic.claude-3-sonnet-20240229-v1:0](https://docs.anthropic.com/claude/docs/models-overview) – Advanced multi-modal image analysis  
+- **Claude Haiku 4.5:** [us.anthropic.claude-haiku-4-5-20251001-v1:0](https://docs.anthropic.com/claude/docs/models-overview) – Fast agent orchestration and reasoning  
+- **Claude Sonnet 4.5:** [us.anthropic.claude-sonnet-4-5-20250929-v1:0](https://docs.anthropic.com/claude/docs/models-overview) – Advanced multi-modal image analysis  
 - **Cohere English V3:** [cohere.embed-english-v3](https://docs.cohere.com/docs/embeddings) – Text embeddings for vector search
 
 ### Database & Vector Search
 
-- **[MongoDB Atlas](https://www.mongodb.com/atlas/database):** Cloud-native document database with vector search capabilities  
-- **[MongoDB Atlas Vector Search](https://www.mongodb.com/products/platform/atlas/vector-search):** Semantic similarity search for policy retrieval  
+- **[MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register?utm_campaign=devrel&utm_source=github&utm_medium=referral&utm_content=insurance_agentic&utm_term=learning.fuel):** Cloud-native document database with vector search capabilities  
+- **[MongoDB Vector Search](https://www.mongodb.com/products/platform/atlas/vector-search?utm_campaign=devrel&utm_source=github&utm_medium=referral&utm_content=insurance_agentic&utm_term=learning.fuel):** Semantic similarity search for policy retrieval  
 - **[PyMongo](https://pymongo.readthedocs.io/en/stable/):** Python driver for MongoDB operations  
 - **[LangGraph MongoDB Checkpoint](https://langchain-ai.github.io/langgraph/integrations/mongodb_checkpoint/):** Agent state persistence and workflow tracking
 
@@ -95,25 +95,19 @@ This project leverages [**MongoDB Atlas Vector Search**](https://www.mongodb.com
 
 ### Step 0: Set Up MongoDB Database and Collections
 
-1. Log in to [MongoDB Atlas](https://www.mongodb.com/atlas/database) and create a new database named `insurance_claims`
+1. Log in to [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register?utm_campaign=devrel&utm_source=github&utm_medium=referral&utm_content=insurance_agentic&utm_term=learning.fuel) and create a new database named `insurance_claims`
 2. Create the following collections:  
     - `processed_claims` – For storing final claim summaries  
     - `chat_history` – For agent conversation persistence  
     - `policy_documents` – For insurance guidelines and policies (with vector embeddings)
-3. **Set up MongoDB Vector Search Index for the `policy_documents` collection:**
+3. **Create the `policy_documents` Vector Search index and seed sample guidelines**, from the `backend` directory (after completing Step 1 below and installing dependencies):
 
-```json
-{
-  "fields": [
-    {
-      "type": "vector",
-      "path": "descriptionEmbedding",
-      "numDimensions": 1024,
-      "similarity": "cosine"
-    }
-  ]
-}
+```sh
+poetry run python scripts/create_vector_search_index.py
+poetry run python scripts/seed_policy_documents.py
 ```
+
+Both scripts are idempotent — safe to re-run.
 
 ---
 
@@ -123,8 +117,8 @@ This project leverages [**MongoDB Atlas Vector Search**](https://www.mongodb.com
 - Add the AWS Access Key ID and Secret Access Key to your environment variables  
 - Grant the necessary permissions to the AWS account: `AmazonBedrockFullAccess`  
 - Ensure the required [Bedrock models](https://docs.aws.amazon.com/bedrock/latest/userguide/foundation-models.html) are available in your region:  
-    - `anthropic.claude-3-haiku-20240307-v1:0` (for agent orchestration)  
-    - `anthropic.claude-3-sonnet-20240229-v1:0` (for image analysis)  
+    - `us.anthropic.claude-haiku-4-5-20251001-v1:0` (for agent orchestration)  
+    - `us.anthropic.claude-sonnet-4-5-20250929-v1:0` (for image analysis)  
     - `cohere.embed-english-v3` (for text embeddings)  
 
 ---
@@ -160,12 +154,12 @@ COLLECTION_NAME_2=processed_claims
 CHAT_HISTORY_COLLECTION=chat_history
 
 # Bedrock Configuration
-BEDROCK_REGION=us-east-1
-
-# Frontend Configuration
-NEXT_PUBLIC_IMAGE_DESCRIPTOR_API_URL=http://localhost:8000/imageDescriptor
-NEXT_PUBLIC_RUN_AGENT_API_URL=http://localhost:8000/runAgent
+AWS_REGION=us-east-1
 ```
+
+> **Note**: The frontend container is already configured (via `docker-compose.yml`) to
+> reach the backend container at `http://insurance-agentic-backend:8080` — no additional
+> frontend env vars are needed for the Docker flow.
 
 #### Build the Application
 
@@ -176,8 +170,8 @@ make build
 #### Access the Application
 
 - Frontend UI: [http://localhost:3000](http://localhost:3000)
-- Backend API: [http://localhost:8000](http://localhost:8000)
-- API Documentation: [http://localhost:8000/docs](http://localhost:8000/docs)
+- Backend API: [http://localhost:8080](http://localhost:8080)
+- API Documentation: [http://localhost:8080/docs](http://localhost:8080/docs)
 
 ---
 
@@ -248,10 +242,14 @@ COLLECTION_NAME_2=processed_claims
 CHAT_HISTORY_COLLECTION=chat_history
 
 # Bedrock Configuration
-BEDROCK_REGION=us-east-1
+AWS_REGION=us-east-1
 ```
 
-Start the backend server.
+Start the backend server:
+
+```sh
+poetry run uvicorn main:app --host 0.0.0.0 --port 8080
+```
 
 ### Frontend Setup
 
@@ -266,8 +264,7 @@ cd ../frontend  # or 'cd frontend' if starting from project root
 Create a `.env.local` file in the `frontend` directory:
 
 ```dotenv
-NEXT_PUBLIC_IMAGE_DESCRIPTOR_API_URL=http://localhost:8000/imageDescriptor
-NEXT_PUBLIC_RUN_AGENT_API_URL=http://localhost:8000/runAgent
+NEXT_PUBLIC_API_BASE=http://localhost:8080
 ```
 
 Install dependencies:
@@ -285,8 +282,8 @@ npm run dev
 #### Access Local Development
 
 - Frontend UI: [http://localhost:3000](http://localhost:3000)
-- Backend API: [http://localhost:8000](http://localhost:8000)
-- API Documentation: [http://localhost:8000/docs](http://localhost:8000/docs)
+- Backend API: [http://localhost:8080](http://localhost:8080)
+- API Documentation: [http://localhost:8080/docs](http://localhost:8080/docs)
 
 ---
 
@@ -317,7 +314,7 @@ Refer to the Makefile itself or run `make help` for a full list and description 
 
 - Ensure Docker Desktop is running before using Make commands
 - Check that AWS credentials are properly mounted in containers
-- Verify that ports `3000` and `8000` are not in use by other applications
+- Verify that ports `3000` and `8080` are not in use by other applications
 
 #### AWS Bedrock Access
 
